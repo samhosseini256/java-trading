@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.model.Currency;
 import org.example.model.PositionType;
+import org.example.model.TimeFrame;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -33,6 +35,19 @@ public class PositionEntity implements Serializable {
     @Column(name = "currency")
     private Currency currency;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "time_frame")
+    private TimeFrame timeFrame;
+
+    @Column(name = "amount")
+    private Long amount;
+
+    @Column(name = "stop_loss")
+    private Long stopLoss;
+
+    @Column(name = "stop_profit")
+    private Long stopProfit;
+
     @Column(name = "entry_date")
     private LocalDateTime entryDate;
 
@@ -50,5 +65,8 @@ public class PositionEntity implements Serializable {
 
     @Column(name = "profit")
     private Long profit;
+
+    @Column(name = "comment")
+    private String comment;
 
 }
